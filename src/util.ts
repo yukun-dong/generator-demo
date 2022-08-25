@@ -1,5 +1,8 @@
 import axios, { AxiosResponse, CancelToken } from "axios";
 import AdmZip from "adm-zip";
+import path from "path";
+import Mustache from "mustache";
+import { templateFileExt } from "./constant";
 
 export async function fetchZipFromUrl(
     url: string,
@@ -69,4 +72,23 @@ export async function sendRequestWithRetry<T>(
 
     error ??= new Error(`RequestWithRetry got bad tryLimits: ${tryLimits}`);
     throw error;
+}
+
+export function renderTemplateContent(
+    filePath: string,
+    data: Buffer,
+    variables: { [key: string]: string }
+): string | Buffer {
+    if (path.extname(filePath) === templateFileExt) {
+    return Mustache.render(data.toString(), variables);
+    }
+    // Return Buffer instead of string if the file is not a template. Because `toString()` may break binary resources, like png files.
+    return data;
+}
+
+export function renderTemplateFileName(
+    data: string,
+    variables: { [key: string]: string }
+): string {
+    return Mustache.render(data, variables);
 }

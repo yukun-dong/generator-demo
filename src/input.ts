@@ -4,5 +4,6 @@ interface Input{
     projectName?: string;
     sampleName?: string;
     programLanguage?: string;
+    projectId?: string;
     folder: string;
 }
