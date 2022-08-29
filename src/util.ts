@@ -80,9 +80,8 @@ export function renderTemplateContent(
     variables: { [key: string]: string }
 ): string | Buffer {
     if (path.extname(filePath) === templateFileExt) {
-    return Mustache.render(data.toString(), variables);
+        return Mustache.render(data.toString(), variables);
     }
-    // Return Buffer instead of string if the file is not a template. Because `toString()` may break binary resources, like png files.
     return data;
 }
 
@@ -91,4 +90,7 @@ export function renderTemplateFileName(
     variables: { [key: string]: string }
 ): string {
     return Mustache.render(data, variables);
+}
+
+export function getTemplateUrl(input: Input){
 }

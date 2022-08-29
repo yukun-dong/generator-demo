@@ -1,4 +1,4 @@
-import { templateLink } from "./constant";
+import { blockLink, templateLink } from "./constant";
 import { Generator } from "./generator/generator";
 import { GeneratorFactory } from "./generator/generatorFactory";
 
