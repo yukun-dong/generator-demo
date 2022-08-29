@@ -4,6 +4,5 @@ export class BlockGenerator extends Generator {
         super(input);
         this.url = input.url;
         this.path = input.folder + '/' + input.projectName!;
-        this.renderView= {};
     }
 }
