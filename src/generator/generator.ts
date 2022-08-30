@@ -1,9 +1,6 @@
 import AdmZip from "adm-zip";
 import { defaultTimeoutInMs, defaultTryLimits } from "../constant";
-import { fetchZipFromUrl, renderTemplateFileName, unzip } from "../util";
-import fs from "fs-extra";
-import path from "path";
-import { renderTemplateContent } from "../util";
+import { fetchZipFromUrl, unzip } from "../util";
 
 export class Generator {
     url!: string;
