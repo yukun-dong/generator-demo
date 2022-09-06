@@ -9,10 +9,10 @@ jobs:
   cd:
     runs-on: ubuntu-latest
     steps:
-     - name: Generate Tag List
+      - name: Generate Tag List
         run: git tag > test/template-tags.txt
 
-     - name: Update Template Tag list Release
+      - name: Update Template Tag list Release
         uses: ncipollo/release-action@v1.10.0
         with:
           artifacts: test/template-tags.txt
