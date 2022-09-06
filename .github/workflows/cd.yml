@@ -9,8 +9,10 @@ jobs:
   cd:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate Tag List
+      - name: test
         run: pwd
+    steps:
+      - name: Generate Tag List
         run: git tag > ${{ runner.temp }}/template-tags.txt
 
       - name: Update Template Tag list Release
