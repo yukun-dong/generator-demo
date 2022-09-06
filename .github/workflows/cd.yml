@@ -1,23 +1,24 @@
-# name: CD
+name: CD
 
-# on:
-#   workflow_dispatch:
-#     inputs:
-#   schedule:
-#     - cron: "0 8 * * *"
-# jobs:
-#   cd:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Generate Tag List
-#         run: git tag > ${{ runner.temp }}/template-tags.txt
+on:
+  workflow_dispatch:
+    inputs:
+  schedule:
+    - cron: "0 8 * * *"
+jobs:
+  cd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Tag List
+        run: pwd
+        run: git tag > ${{ runner.temp }}/template-tags.txt
 
-#       - name: Update Template Tag list Release
-#         uses: ncipollo/release-action@v1.10.0
-#         with:
-#           artifacts: ${{ runner.temp }}/template-tags.txt
-#           name: "Template Tag List"
-#           body: "Release to maintain template tag list."
-#           token: ${{ secrets.token }}
-#           tag: "template-tag-list"
-#           allowUpdates: true
+      - name: Update Template Tag list Release
+        uses: ncipollo/release-action@v1.10.0
+        with:
+          artifacts: ${{ runner.temp }}/template-tags.txt
+          name: "Template Tag List"
+          body: "Release to maintain template tag list."
+          token: ${{ secrets.token }}
+          tag: "template-tag-list"
+          allowUpdates: true
