@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: test
         run: pwd
-    steps:
+        
       - name: Generate Tag List
         run: git tag > ${{ runner.temp }}/template-tags.txt
 
