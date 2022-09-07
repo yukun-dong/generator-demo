@@ -15,12 +15,12 @@ jobs:
           fetch-depth: 0
 
       - name: Generate Tag List
-        run: git tag > ${{ runner.temp }}/template-tags.txt
+        run: git tag > ${{ runner.temp }}/template-tag.txt
 
       - name: Update Template Tag list Release
         uses: ncipollo/release-action@v1.10.0
         with:
-          artifacts: ${{ runner.temp }}/template-tags.txt
+          artifacts: ${{ runner.temp }}/template-tag.txt
           name: "Template Tag List"
           body: "Release to maintain template tag list."
           token: ${{ secrets.token }}
