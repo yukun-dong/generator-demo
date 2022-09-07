@@ -17,10 +17,6 @@ jobs:
       - name: Generate Tag List
         run: git tag > ${{ runner.temp }}/template-tags.txt
 
-      - name: cat
-        run: cat ${{ runner.temp }}/template-tags.txt
-
-
       - name: Update Template Tag list Release
         uses: ncipollo/release-action@v1.10.0
         with:
