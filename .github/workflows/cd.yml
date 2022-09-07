@@ -14,9 +14,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: test
-        run: git tag
+        run: git tag -n
       - name: Generate Tag List
-        run: git tag > ${{ runner.temp }}/template-tag.txt
+        run: git tag -n > ${{ runner.temp }}/template-tag.txt
 
       - name: Update Template Tag list Release
         uses: ncipollo/release-action@v1.10.0
