@@ -24,5 +24,4 @@ jobs:
           name: "Template Tag List"
           body: "Release to maintain template tag list."
           token: ${{ secrets.token }}
-          tag: "template-tag-list"
           allowUpdates: true
